@@ -1,31 +1,34 @@
-import React, { useState } from "react";
-// import axios from "axios";
-// import { AccountContext } from "../../context/AccountDetails";
+import React, { useContext, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const { setAccount, setIsLogged } = useContext(AccountContext);
+  const navigate = useNavigate();
+  const {setUser} = useContext(UserContext);
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
-    // try {
-    //   const response = await axios.post("http://localhost:3001/users/login", {
-    //     email,
-    //     password,
-    //   });
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:3001/users/login", {
+        email,
+        password,
+      });
 
-    //   if (response.status === 200) {
-    //     setIsLogged("yes");
-    //     setAccount(response.data.user);
-    //     setOnlineUsers((prevUsers) => [...prevUsers, response.data.user._id]);
-    //   } else {
-    //     alert("Incorrect credentials");
-    //   }
-    // } catch (error) {
-    //   console.error("Error:", error);
-    //   alert("Incorrect credentials");
-    // }
+      if (response.status === 200) {
+        setUser(response.data.user);
+        // console.log(response.data.user);
+        navigate("/home");
+        alert("login sucess");
+      } else {
+        alert("Incorrect credentials");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Incorrect credentials");
+    }
   };
 
   return (
@@ -56,7 +59,7 @@ const Login = (props) => {
           <input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            type="password"
+            type="current-password"
             id="password"
             placeholder="Password"
             required
