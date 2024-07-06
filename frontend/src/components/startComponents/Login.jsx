@@ -32,7 +32,7 @@ const Login = (props) => {
     <div className="h-[400px] flex flex-col gap-5">
       <form
         onSubmit={handleSubmit}
-        className="h-[300px] p-5 border border-black rounded-lg"
+        className="h-[320px] p-5 border border-black rounded-lg"
       >
         <section className="flex flex-col mb-5">
           <label htmlFor="email" className="text-black mb-2">
