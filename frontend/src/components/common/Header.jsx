@@ -1,51 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { AiOutlineLogin } from "react-icons/ai";
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-between bg-black h-15 shadow-md">
-      <div className="p-4">
+    <div className="header-glass-effect fixed w-full flex items-center justify-between h-[75px] shadow-md z-50 px-8">
+      <div>
         <img
           src="./images/logo.png"
           alt="Catalyst"
-          className="h-[50px] w-[100px]"
+          className="h-[75px] w-[150px]"
         />
       </div>
-      <div className="flex p-4 items-center">
-        <div className="relative mx-3">
-          <img
-            src="./images/header/message-icon.svg"
-            alt="Messages Icon"
-            className="w-6 h-6"
-          />
-          <div className="absolute top-[-4px] right-[-4px] bg-white border border-gray-400 text-red-500 w-1 h-1 p-2 flex items-center justify-center rounded-full text-xs font-bold">
-            <p className="text-xs font-medium">1</p>
-          </div>
-        </div>
-        <div className="relative mx-3">
-          <img
-            src="./images/header/notification_icon.svg"
-            alt="Notification Icon"
-            className="w-6 h-6"
-          />
-          <div className="absolute top-[-4px] right-[-4px] bg-white border border-gray-400 text-red-500 w-1 h-1 p-2 flex items-center justify-center rounded-full text-xs font-bold">
-            <p className="text-xs font-medium">1</p>
-          </div>
-        </div>
-        <div className="relative mx-3">
-          <img
-            src="./images/header/other_icon.svg"
-            alt="Other Icon"
-            className="w-6 h-6"
-          />
-        </div>
-        <div className="relative ml-2">
-          <img
-            src="./images/header/profile_pic.svg"
-            alt="Profile"
-            className="w-7 h-7 rounded-full"
-          />
-        </div>
-      </div>
+      <Link to="/start">
+        <AiOutlineLogin
+          style={{
+            color: "#ffed00",
+            backgroundColor: "black",
+            borderRadius: "50px",
+            padding: "3px",
+            width: "30px",
+            height: "30px",
+          }}
+        />
+      </Link>
     </div>
   );
 };

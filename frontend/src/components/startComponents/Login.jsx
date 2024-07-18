@@ -20,7 +20,7 @@ const Login = (props) => {
       if (response.status === 200) {
         setUser(response.data.user);
         // console.log(response.data.user);
-        navigate("/home");
+        navigate("/");
         alert("login sucess");
       } else {
         alert("Incorrect credentials");
