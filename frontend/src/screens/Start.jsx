@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Register from "../components/startComponents/Register";
 import Login from "../components/startComponents/Login";
-import { UserContext } from "../context/UserContext";
+import { useUserContext } from "../context/UserContext";
 
 const Start = () => {
   const [haveAccount, setHaveAccount] = useState("yes");
   const toggle = (decision) => {
     setHaveAccount(decision);
   };
-  const { setUser } = useContext(UserContext);
+  const { setUser } = useUserContext();
   useEffect(() => {
     setUser(null);
   }, [setUser]);
