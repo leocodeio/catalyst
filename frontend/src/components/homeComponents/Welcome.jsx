@@ -5,7 +5,7 @@ const Welcome = () => {
   const { user } = useContext(UserContext);
 
   return (
-    <div className="bg-black text-primary flex flex-col items-center justify-center text-center p-4 rounded-lg">
+    <div className="bg-black bg-opacity-45 text-primary flex flex-col items-center justify-center text-center p-4 rounded-lg">
       {user ? (
         <h1 className="text-2xl mb-4">Welcome to Catalyst - {user.name}</h1>
       ) : (
