@@ -7,7 +7,7 @@ const Home = () => {
     <>
       <Header />
       <div
-        className="h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center"
+        className="h-screen w-screen bg-cover bg-center bg-no-repeat flex items-center justify-center"
         style={{ backgroundImage: "url('./images/catalyst-home.jpg')" }}
       >
         <Welcome />
