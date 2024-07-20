@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import axios from 'axios';
+import axios from 'axios';
 
 const Register = (props) => {
   const [email, setEmail] = useState("");
@@ -12,14 +12,14 @@ const Register = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // try {
-    //   const response = await axios.post('http://localhost:3001/users/signup', { email, phone, name });
-    //   console.log(response.data);
-    //   props.onFormSwitch('yes');
-    //   alert("Signup success!!");
-    // } catch (error) {
-    //   console.error('Error:', error);
-    // }
+    try {
+      const response = await axios.post('http://localhost:3001/users/signup', { name, email,phone, password });
+      console.log(response.data);
+      props.onFormSwitch('yes');
+      alert("Signup success!!");
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
@@ -28,7 +28,7 @@ const Register = (props) => {
         <>
           <form
             onSubmit={handleSubmit}
-            className="h-[300px] p-5 border border-black rounded-lg"
+            className="h-[320px] p-5 border border-black rounded-lg"
           >
             <section className="flex flex-col mb-5">
               <label htmlFor="password" className="text-black mb-1">
@@ -60,7 +60,7 @@ const Register = (props) => {
               type="submit"
               className="w-full p-2 bg-primary text-white rounded hover:border-2 transition duration-150"
             >
-              Confirm
+              Sign Up
             </button>
           </form>
         </>
@@ -69,7 +69,7 @@ const Register = (props) => {
           onSubmit={() => {
             setPassStep(true);
           }}
-          className="h-[300px] px-5  py-2 border border-black rounded-lg"
+          className="h-[320px] px-5  py-2 border border-black rounded-lg"
         >
           <section className="flex flex-col mb-2">
             <label htmlFor="name" className="text-black mb-1">

@@ -1,16 +1,21 @@
 // App.js
-import "./App.css"
+import "./App.css";
 import React from "react";
 import Start from "./screens/Start";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-function App() {
+import Home from "./screens/Home";
+import { UserState } from "./context/UserContext";
+const App = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route exact path="/" element={<Start />} />
-      </Routes>
+      <UserState>
+        <Routes>
+          <Route path="/start" element={<Start />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </UserState>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

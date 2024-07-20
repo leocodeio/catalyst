@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //routes
-app.use("/user", userRoutes);
+app.use("/users", userRoutes);
 
 app.listen(port, () => {
   console.log(`server running at ${port}`);
