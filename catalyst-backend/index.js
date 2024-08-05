@@ -4,7 +4,7 @@ import cors from "cors";
 import userRoutes from './routes/user.routes.js'
 //app
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 //db connection
 import connectDB from "./config/db.js";
