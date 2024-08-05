@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 const Register = (props) => {
   const [email, setEmail] = useState("");
@@ -13,12 +13,20 @@ const Register = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/users/signup', { name, email,phone, password });
+      const response = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/users/signup`,
+        {
+          name,
+          email,
+          phone,
+          password,
+        }
+      );
       console.log(response.data);
-      props.onFormSwitch('yes');
+      props.onFormSwitch("yes");
       alert("Signup success!!");
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 

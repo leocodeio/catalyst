@@ -7,12 +7,12 @@ const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const {setUser} = useUserContext();
+  const { setUser } = useUserContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/users/login", {
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/users/login`, {
         email,
         password,
       });
